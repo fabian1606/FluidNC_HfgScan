@@ -1,0 +1,70 @@
+name: "Hfg scanner"
+board: "esp"
+
+stepping:
+  engine: RMT
+  idle_ms: 255
+  dir_delay_us: 1
+  pulse_us: 2
+  disable_delay_us: 0
+
+axes:
+  shared_stepper_disable_pin: gpio.13:low
+
+  x:
+    steps_per_mm: 800
+    max_rate_mm_per_min: 2000
+    acceleration_mm_per_sec2: 25
+    max_travel_mm: 1000
+    soft_limits: false
+    homing:
+     cycle: 2
+      positive_direction: false
+     mpos_mm: 150.000
+      feed_mm_per_min: 100.000
+      seek_mm_per_min: 200.000
+      settle_ms: 500
+      seek_scaler: 1.100
+      feed_scaler: 1.100
+
+    motor0:
+      limit_neg_pin: gpio.39:low
+      standard_stepper:
+        step_pin: gpio.23
+        direction_pin: gpio.22
+    motor1:
+      null_motor:
+
+  y:
+    steps_per_mm: 800
+    max_rate_mm_per_min: 2000
+    acceleration_mm_per_sec2: 25
+    max_travel_mm: 1000
+    soft_limits: false
+    #homing:
+    #  cycle: 2
+    #  positive_direction: false
+    #  mpos_mm: 150.000
+    #  feed_mm_per_min: 100.000
+    #  seek_mm_per_min: 200.000
+    #  settle_ms: 500
+    #  seek_scaler: 1.100
+    #  feed_scaler: 1.100
+#
+    motor0:
+     # limit_neg_pin: gpio.36:low
+      standard_stepper:
+        step_pin: gpio.19
+        direction_pin: gpio.18
+    motor1:
+      null_motor:
+
+user_outputs:
+  digital0_pin: gpio.26
+  digital1_pin: gpio.4
+  digital2_pin: i2so.5
+  digital3_pin: i2so.6:low
+  digital4_pin: NO_PIN
+  digital5_pin: NO_PIN
+  digital6_pin: NO_PIN
+  digital7_pin: NO_PIN
