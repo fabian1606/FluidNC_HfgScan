@@ -7,6 +7,7 @@
 #include "../Configuration/Configurable.h"
 #include "../GCode.h"       // MaxUserDigitalPin MaxUserAnalogPin
 #include "Driver/PwmPin.h"  // pwm_chan_t
+#include "Arduino.h"
 
 namespace Machine {
     class UserOutputs : public Configuration::Configurable {

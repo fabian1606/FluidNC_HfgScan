@@ -51,7 +51,20 @@ namespace Machine {
         if (pin.undefined()) {
             return !isOn;  // It is okay to turn off an undefined pin, for safety
         }
-        pin.synchronousWrite(isOn);
+        for (int i = 0; i < 16; i++) {
+            pin.synchronousWrite(true);
+            delayMicroseconds(11);
+            pin.synchronousWrite(false);
+            delayMicroseconds(11);
+        }
+        delayMicroseconds(7330);
+
+        for (int i = 0; i < 16; i++) {
+            pin.synchronousWrite(true);
+            delayMicroseconds(11);
+            pin.synchronousWrite(false);
+            delayMicroseconds(11);
+        }
         return true;
     }
 
